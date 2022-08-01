@@ -21,7 +21,7 @@ export default function Home() {
                 <Link className='TopBar__Link' href='/login'>
                     Login
                 </Link>
-                <Button className='TopBar__Link' href='/register'>
+                <Button  variant='outlined' href='/register'>
                     Comece agora
                 </Button>
             </>}

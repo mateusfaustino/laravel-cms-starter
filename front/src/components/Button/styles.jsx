@@ -1,7 +1,7 @@
 import styled from 'styled-components';
  
 
-export const Button = styled.button`
+export const StyledButton = styled.button`
     border-radius:4px;
     font-size: 0.875rem;
     min-width: 64px;
@@ -20,7 +20,7 @@ export const Button = styled.button`
     margin-right:${({marginRight})=>marginRight?marginRight:'0'};
     margin-top:${({marginTop})=>marginTop?marginTop:'0'};
     margin-bottom${({marginBottom})=>marginBottom?marginBottom:'0'};
-    
+
     &.variant-outlined{ 
      
         &.color-primary{

@@ -1,9 +1,9 @@
 import React from 'react'
-import { Button } from './styles'
+import { StyledButton } from './styles'
 
 import Link from '../Link'
 
-export default function  (
+export default function Button (
         {
             children, onClick, variant, href,color,
             margin, marginLeft, marginright, margintop, marginBottom,
@@ -11,14 +11,13 @@ export default function  (
 
         }){
     return<>
-        <Customlink href={href}>
-            <Button 
+            <StyledButton 
                 onClick={onClick} 
                 className={`
-                    ${variant?'variant-'+variant:'variant-contained'} 
+                ${variant?'variant-'+variant:'variant-contained'} 
                     ${color?'color-'+color:'color-primary'}
                     
-                `}
+                    `}
                 margin={margin}
                 marginLeft={marginLeft}
                 marginright={marginright}
@@ -27,10 +26,11 @@ export default function  (
                 {...otherProps}
             >
                 <span >
-                    {children}
+                    <Customlink href={href}>
+                        {children}
+                    </Customlink> 
                 </span>
-            </Button>
-        </Customlink> 
+            </StyledButton>
     </> 
   
 } 
