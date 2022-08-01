@@ -10,5 +10,5 @@ export const Container = styled.header`
     left: 0;
     display: flex;
     height: 57px;
-    padding: 8px 4px;
+    padding: 8px 32px;
 `;

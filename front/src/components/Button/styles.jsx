@@ -13,8 +13,16 @@ export const Button = styled.button`
     border-radius: 4px;
     letter-spacing: 0.02857em;
     text-transform: uppercase;
+    padding: 5px 15px;
+
+    margin:${({margin})=>margin?margin:'0'}; 
+    margin-left:${({marginLeft})=>marginLeft?marginLeft:'0'};
+    margin-right:${({marginRight})=>marginRight?marginRight:'0'};
+    margin-top:${({marginTop})=>marginTop?marginTop:'0'};
+    margin-bottom${({marginBottom})=>marginBottom?marginBottom:'0'};
+    
     &.variant-outlined{ 
-        padding: 5px 15px; 
+     
         &.color-primary{
             color: #1976d2;
             border: 1px solid rgba(25, 118, 210, 0.5);
@@ -27,7 +35,8 @@ export const Button = styled.button`
 
     &.variant-contained{
         &&.color-primary{
-            
+            background:#0277BD;
+            color:#fff;
         }
     
         &&.color-secondary{

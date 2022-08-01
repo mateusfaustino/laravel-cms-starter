@@ -21,9 +21,9 @@ export default function Home() {
                 <Link className='TopBar__Link' href='/login'>
                     Login
                 </Link>
-                <Link className='TopBar__Link' href='/register'>
+                <Button className='TopBar__Link' href='/register'>
                     Comece agora
-                </Link>
+                </Button>
             </>}
         </AppBar>
     </>
