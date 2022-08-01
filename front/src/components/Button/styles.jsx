@@ -27,9 +27,14 @@ export const StyledButton = styled.button`
             color: #1976d2;
             border: 1px solid rgba(25, 118, 210, 0.5);
         }
-
+        
         &.color-secondary{
+            
+        }
 
+        &.color-light{
+            color: #fff;
+            border: 1px solid #fff;
         }
     }
 
@@ -41,6 +46,11 @@ export const StyledButton = styled.button`
     
         &&.color-secondary{
     
+        }
+
+        &.color-light{
+            color: #1976d2;;
+            background: #fff;
         }
     }
     &.disabled{

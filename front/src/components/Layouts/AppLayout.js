@@ -1,28 +1,5 @@
 import Navigation from '@/components/Layouts/Navigation'
 import { useAuth } from '@/hooks/auth'
-// import Drawer from '../Drawer/index'
-
-// const AppLayout = ({ header, children }) => {
-//     const { user } = useAuth({ middleware: 'auth' })
-
-//     return (
-//         <div className="min-h-screen bg-gray-100">
-//             <Navigation user={user} />
-
-//             {/* Page Heading */}
-//             <header className="bg-white shadow">
-//                 <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-//                     {header}
-//                 </div>
-//             </header>
-
-//             {/* Page Content */}
-//             <main>{children}</main>
-//         </div>
-//     )
-// }
-
-// export default AppLayout
 
 import * as React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
@@ -44,6 +21,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import AccountCircle from '@mui/icons-material/AccountCircle';
+import Button from '../Button';
+
 
 const drawerWidth = 240;
 
@@ -103,7 +82,7 @@ export default function AppLayout({ header, children }) {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  const { user } = useAuth({ middleware: 'auth' })
+  const { user, logout } = useAuth({ middleware: 'auth' })
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -118,9 +97,22 @@ export default function AppLayout({ header, children }) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            {user?.name}
-          </Typography>
+          <div className="flex justify-between w-full">
+            <div>
+              <Typography variant="h6" noWrap component="div">
+                {user?.name}
+              </Typography>
+            </div>  
+            <div>
+              <Button 
+                onClick={()=>logout()}
+                variant='outlined' 
+                color='light'
+              >
+                Logout
+              </Button>
+            </div>  
+          </div>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -144,7 +136,7 @@ export default function AppLayout({ header, children }) {
         <Divider />
         <List>
         <ListItem disablePadding>
-              <ListItemButton>
+              <ListItemButton href='/profile'>
                 <ListItemIcon>
                     <AccountCircle />
                 </ListItemIcon>
