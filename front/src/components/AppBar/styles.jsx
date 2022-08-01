@@ -1,42 +1,14 @@
-import { makeStyles } from '@material-ui/core/styles';
-import { withTheme } from "@material-ui/core/styles";
 import styled from 'styled-components';
-import AppBar from "@material-ui/core/AppBar";
-const drawerWidth = 240;
-export const useStyles = makeStyles((theme) => ({
-    root: {
-      display: 'flex',
-    },
-    hide: {
-      display: 'none!important',
-    },
-    appBar: {
-      zIndex: theme.zIndex.drawer + 1,
-      transition: theme.transitions.create(['width', 'margin'], {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen,
-      }),
-    },
-    appBarShift: {
-      marginLeft: theme.space.drawer.width+'!important',
-      width: `calc(100% - ${theme.space.drawer.width}px)`+'!important',
-      transition: theme.transitions.create(['width', 'margin'], {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-    },
-    menuButton: {
-      marginRight: 36,
-    },
-    
-    toolbar: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'flex-end',
-      padding: theme.spacing(0, 1),
-      // necessary for content to be below app bar
-      ...theme.mixins.toolbar,
-    },
-    
-   
-}));
+
+export const Container = styled.header`
+    position: absolute;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    height: 57px;
+    padding: 8px 4px;
+`;
