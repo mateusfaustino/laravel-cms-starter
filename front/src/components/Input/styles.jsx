@@ -15,7 +15,7 @@ export const StyledInput = styled.input`
 
     &:focus {
         background-color: rgb(232, 240, 254);
-        
+        border: 1px solid #0277BD;
     }
 
 `;

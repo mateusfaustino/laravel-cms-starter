@@ -4,7 +4,8 @@ export const AuthCard = styled.div`
     display: flex;
     min-height: 100vh;
     padding-top: 1.5rem;
-    background-color: rgb(243 244 246 / 1);
+    /* background-color: rgb(243 244 246 / 1); */
+    background-color: #0277BD;
     align-items: center;
     flex-direction: column;
     overflow:hidden;
