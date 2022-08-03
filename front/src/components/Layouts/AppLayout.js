@@ -22,7 +22,7 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import Button from '../Button';
-
+import Sidebar from '@/components/Sidebar'
 
 const drawerWidth = 240;
 
@@ -84,9 +84,9 @@ export default function AppLayout({ header, children }) {
   };
   const { user, logout } = useAuth({ middleware: 'auth' })
   return (
-    <Box sx={{ display: 'flex' }}>
+    <>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
+      {/* <AppBar position="fixed" open={open}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -147,11 +147,13 @@ export default function AppLayout({ header, children }) {
         </List>
         <Divider />
         
-      </Drawer>
-      <Main open={open}>
-        <DrawerHeader />
-        {children}
-      </Main>
-    </Box>
+      </Drawer> */}
+      <Sidebar>
+        
+          {/* <DrawerHeader /> */}
+          {children}
+        
+      </Sidebar>
+    </>
   );
 }
