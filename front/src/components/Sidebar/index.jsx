@@ -2,15 +2,17 @@ import React, {useEffect,useState} from 'react'
 import { Container,
      StyledSidebar,
      LogoDetails,
-     NavList
+     NavList,
 } from './styles'
 import Logo from '@/components/ApplicationLogo'
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import DashboardIcon from '@mui/icons-material/Dashboard';
-
+import Input from '../Input';
 export default function Sidebar ({children}) {
     const [open, setOpen] = useState(true)
+    const [searchFocus, setSearchFocus] = useState(false)
+    const [tooltipOpen, setTooltipOpen] = useState('')
     useEffect(() => {
         // let sidebar = document.querySelector(".sidebar");
         // let closeBtn = document.querySelector("#btn");
@@ -35,8 +37,33 @@ export default function Sidebar ({children}) {
         //     }
         // }
     }, []);
+    function handleSearchFocus(){
+        setSearchFocus(true)
+        if (!open){
+            setOpen(true)
+        }
+    }
+    function handleSearchIconClick(){
+        if(open){
+
+        }else{
+            setOpen(true)
+        }
+    }
+
+    function handleSearchMouseEnter(){
+        setSearchFocus(true)
+        if(!open){
+            setTooltipOpen('search')
+        }
+    }
+    
+    function handleSearchMouseLeave(){
+        setSearchFocus(false)
+        setTooltipOpen('')
+    }
     return <>
-        <StyledSidebar  open={open}>
+        <StyledSidebar  open={open} searchFocus={searchFocus}>
             {/* <section className="home-section"> */}
             {/* </section> */}
             <LogoDetails className="logo-details">
@@ -46,9 +73,27 @@ export default function Sidebar ({children}) {
             </LogoDetails>
             <NavList>
                 <li>
-                    <SearchIcon className='bx bx-search' ></SearchIcon>
-                    <input type="text" placeholder="Search..."/>
-                    <span className="tooltip">Search</span>
+                    <Input 
+                        type="text" 
+                        className='search-input' 
+                        placeholder="Search..."
+                        onFocus={()=>handleSearchFocus()}
+                        onBlur={()=>setSearchFocus(false)}
+                        onMouseEnter={()=>handleSearchMouseEnter()}
+                        onMouseLeave={()=>handleSearchMouseLeave()}
+                        tooltipOpen={(tooltipOpen=='search')}
+                        tooltip='Search'
+                        icon={
+                            <SearchIcon 
+                                className='search-icon'
+                                onClick={()=>handleSearchIconClick()}
+                                onMouseEnter={()=>handleSearchMouseEnter()}
+                                onMouseLeave={()=>handleSearchMouseLeave()}
+                            />
+                        }
+                    />
+                <span>
+                </span>
                 </li>
                 <li>
                     <a href="#">

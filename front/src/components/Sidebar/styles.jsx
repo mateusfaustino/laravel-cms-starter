@@ -4,6 +4,7 @@ export const NavList = styled.ul`
     margin-top: 20px;
     height: 100%;
 `
+
 export const StyledSidebar = styled.div`
     position: fixed;
     left: 0;
@@ -25,6 +26,9 @@ export const StyledSidebar = styled.div`
         line-height: 60px;
     }
 
+    input:focus{
+        color:#000;
+    }
     input{
         font-size: 15px;
         color: #FFF;
@@ -39,36 +43,52 @@ export const StyledSidebar = styled.div`
         background: #1d1b31;
     }
     li{
-        position: relative;
+        // position: relative;
         margin: 8px 0;
         list-style: none;
     }
     .bx-search{
-        position: absolute;
-        top: 50%;
-        left: 0;
-        transform: translateY(-50%);
+        
         font-size: 22px;
-        background: #1d1b31;
         color: #FFF;
+    }
+    .search-icon{
+        color:#fff;
+        cursor:pointer;
     }
     
     .bx-search:hover{
         background: #FFF;
         color: #11101d;
     }
+
+    ${({searchFocus})=>searchFocus?`
+        .search-icon{
+            color:#000;
+        }
+        .search-input{
+            background: #fff;
+        }
+    `:`
+        .search-input{
+            background: #1d1b31;
+        }    
+    `}
     ${({open})=>open?`
     
     width: 250px;
     input{
-        padding: 0 20px 0 50px;
+        // padding: 0 20px 0 50px;
         width: 100%;
     }
+    
     .bx-search:hover{
         background: #1d1b31;
         color: #FFF;
     }
-    `:''}
+    `:`
+    color: #000;
+    `}
     `
 export const LogoDetails = styled.div`
     height: 60px;
