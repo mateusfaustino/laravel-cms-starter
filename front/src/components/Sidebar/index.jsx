@@ -9,6 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import Input from '../Input';
+import MenuItem from './MenuItem';
 export default function Sidebar ({children}) {
     const [open, setOpen] = useState(true)
     const [searchFocus, setSearchFocus] = useState(false)
@@ -66,13 +67,13 @@ export default function Sidebar ({children}) {
         <StyledSidebar  open={open} searchFocus={searchFocus}>
             {/* <section className="home-section"> */}
             {/* </section> */}
-            <LogoDetails className="logo-details">
-                <Logo width='40' ></Logo>
+            <LogoDetails open={open} className="logo-details">
+                <Logo className='logo' width='40' ></Logo>
                 {/* <div class="logo_name">Mateus</div> */}
                 <MenuIcon id="btn" onClick={()=>setOpen(!open)}></MenuIcon>
             </LogoDetails>
             <NavList>
-                <li>
+                <li className='search-item'>
                     <Input 
                         type="text" 
                         className='search-input' 
@@ -96,11 +97,17 @@ export default function Sidebar ({children}) {
                 </span>
                 </li>
                 <li>
-                    <a href="#">
-                    <i class='bx bx-grid-alt'></i>
-                    <span class="links_name">Dashboard</span>
-                    </a>
-                    <span class="tooltip">Dashboard</span>
+                    <MenuItem
+                        icon={
+                            <DashboardIcon/>
+                        }
+                        href='#'
+                        tooltip='/dashboard'
+                        tooltipOpen={true}
+                        open={open}
+                    >
+                        Dashboard
+                    </MenuItem>
                 </li>
                 <li>
                 <a href="#">

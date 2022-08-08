@@ -34,7 +34,7 @@ export const IconWrapper = styled.span`
     left: 0;
     transform: translateX(calc(25px - 50%))translateY(calc(3px));
     transition: all 0.5s ease;
-    `
+`
 export const StyledInput = styled.input`
     --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
